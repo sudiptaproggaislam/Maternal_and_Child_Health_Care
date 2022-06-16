@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&family=Fira+Sans&family=Raleway&family=Rubik&family=Source+Code+Pro:wght@300&display=swap");
+/* SASS Template */
+.font-baloo {
+  font-family: "Baloo Thambi 2", cursive;
+}
+
+.font-raleway {
+  font-family: "Raleway", sans-serif;
+}
+
+.font-rubik {
+  font-family: "Rubik", sans-serif;
+}
+
+.font-size-12 {
+  font-size: 12px;
+}
+
+.font-size-14 {
+  font-size: 14px;
+}
+
+.font-size-16 {
+  font-size: 16px;
+}
+
+.font-size-20 {
+  font-size: 20px;
+}
+
+.color-primary {
+  color: #003859;
+}
+
+.color-primary-bg {
+  background: #003859;
+}
+
+.color-second {
+  color: #00A5C4;
+}
+
+.color-second-bg {
+  background: #00A5C4;
+}
+
+.color-yellow {
+  color: #FFD289;
+}
+
+.color-yellow-bg {
+  background: #FFD289;
+}
+
+.dbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.ddown {
+  position: relative;
+  display: inline-block;
+}
+
+.ddown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.ddown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.ddown-content a:hover {
+  background-color: #ddd;
+}
+
+.ddown:hover .ddown-content {
+  display: block;
+}
+
+.ddown:hover .dbtn {
+  background-color: #3e8e41;
+}/*# sourceMappingURL=style.css.map */
