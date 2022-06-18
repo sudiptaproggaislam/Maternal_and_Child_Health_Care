@@ -23,9 +23,10 @@ if(isset($_POST['loginnow']))
                     'username' => $row['name'],
                     'phone' => $row['phone'],
                     'email' => $row['email'],
+                    'authID' => $row['verify_token'],
                 ];
                 $_SESSION['status'] = "You are logged in successfully.";
-                header("location:dashboard.php");
+                header("location:index.php");
                 exit(0);
             }
             else
