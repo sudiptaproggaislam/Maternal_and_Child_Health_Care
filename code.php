@@ -19,7 +19,7 @@ if (isset($_POST['register_button']))
 
 if (mysqli_num_rows($check_email_query_run) > 0) 
 {
-    $_SESSION['status'] = "Email id already exists";
+    $_SESSION['status'] = "Email id already exists... acbytbdiubdsbdb";
     header('location:register.php');
 } 
 else 
