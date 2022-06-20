@@ -4,8 +4,6 @@ $page_title = "Home Page";
 include('./includes/header.php');
 include('./includes/navbar.php');
 
-
-
 function due($dateOfLMP, $periodCycle)
 {
   include('dbcon.php');
@@ -19,7 +17,6 @@ function due($dateOfLMP, $periodCycle)
 
   // next period start
   $next_period = $lasttime + $periodCycle * 24 * 3600;
-
   $next_period = date("F d, Y", $next_period);
 
   //first fertile day
@@ -34,7 +31,6 @@ function due($dateOfLMP, $periodCycle)
   $diff = $periodCycle - 28;
 
   //due date $date + 280 days
-
   $duedatetime = $lasttime + 280 * 24 * 3600 + $diff * 24 * 3600;
   $duedate = date("F d, Y", $duedatetime);
 
@@ -91,7 +87,10 @@ function due($dateOfLMP, $periodCycle)
     </ul>
     
 </ul>";
+
 ?>
+
+<!-- Buttons -->
   <form method="POST">
     <div class="row d-flex">
       <div class="col-lg-6">
@@ -108,42 +107,29 @@ function due($dateOfLMP, $periodCycle)
 
 <?php
   if (isset($_POST['reminderbtn'])) {
-
     for ($i = 0; $i < 15; $i++) {
       $query = "INSERT INTO reminder(name,phone,email,verify_token,rdate) values('$name','$phone','$email','$verify_token','$visit[$i]')";
       $query_run = mysqli_query($con, $query);
     }
-    // unset($_SESSION['reminder']);
-    // echo "<script>refreshDiv();</script>";
   }
 
   if (isset($_POST['unset'])) {
-    $delete_query = "DELETE FROM reminder where r_status=0 and verify_token='$verify_token'";
-    $delete_query_run = mysqli_query($con, $delete_query);
-    // if ($delete_query_run) {
-    //   echo "<br>Deleted";
-    // } else {
-    //   echo "<br>Failed";
-    // }
-    // // unset($_SESSION['reminder']);
-    //header('location:index.php');
-    //exit(0);
+    // $delete_query = "DELETE FROM reminder where r_status=0 and verify_token='$verify_token'";
+    // $delete_query_run = mysqli_query($con, $delete_query);
 
-    //return;
     unset($_SESSION['reminder']);
     // header("Refresh:0");
     echo "<script>refreshDiv();</script>";
-    // return true;
     
   }
-  // echo "<script>refreshDiv();</script>";
 }
 ?>
 
 
-
+<!-- ekhane pura page er container suru -->
 <div class="container-fluid">
   <div class="row mb-5">
+    <!-- eta left er column ta, ignore koro -->
     <div class="col-md-8">
 
       <?php if (!isset($_SESSION['authenticated'])) : ?>
@@ -186,7 +172,8 @@ function due($dateOfLMP, $periodCycle)
     </div>
 
 
-
+<!-- ekhan theke drkr -->
+<!-- eta due date er column -->
     <div class="col-md-4 mx-0 px-0">
       <div class="container mx-0 px-0">
         <div class="row justify-content-center mx-0 px-0">
@@ -212,7 +199,6 @@ function due($dateOfLMP, $periodCycle)
                           }
                           ?>
                         </select></p>
-                      <!-- <input type="submit" name="submit" class="datesubmit"><br> -->
                       <input align="center" type="submit" name="submit" value="Calculate" class="btn btn-outline-info w-100"><br>
 
                     </form>
@@ -224,30 +210,25 @@ function due($dateOfLMP, $periodCycle)
           </div>
         </div>
         <div class="row justify-content-center mx-0 px-0">
+
+
+        <!-- result show korar div -->
           <div class="col alert" id="refresh-div">
             <hr>
-            <!-- CALCULATOR -->
             <?php
-            // unset($_SESSION['reminder']);
+            // Calculate button click krle reminder set hcche
             if (isset($_POST['submit'])) :
               $_SESSION['dateOfLMP']=$_POST['dates'];
               $_SESSION['periodCycle']=$_POST['days'];
               $_SESSION['reminder'] = TRUE;
-              $_SESSION['reminder2'] = TRUE;
             endif;
 
+
+          // Function call if reminder set
             if (isset($_SESSION['reminder'])) {
-              // include('calculator.php');
-              // $dateOfLMP=$_POST['dates']; 
-              // $periodCycle=$_POST['days'];
               due($_SESSION['dateOfLMP'], $_SESSION['periodCycle']);
-              // unset($_SESSION['reminder']);
-              // echo "<script>refreshDiv();</script>";
             }
 
-            // if (isset($_SESSION['reminder2'])) {
-            //   include('new.php');
-            // }
             ?>
 
             <div>

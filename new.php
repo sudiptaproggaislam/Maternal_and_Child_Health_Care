@@ -19,11 +19,9 @@ date_default_timezone_set("Asia/Dhaka");
     </tr>
 
 <?php
+
 $find_dates_to_send_reminder = "SELECT * from reminder WHERE  rdate > CURRENT_TIMESTAMP";
-
-
 $find_dates_to_send_reminder_run = mysqli_query($con, $find_dates_to_send_reminder);
-
 
 while ($result = mysqli_fetch_array($find_dates_to_send_reminder_run)) {
     
@@ -33,17 +31,6 @@ while ($result = mysqli_fetch_array($find_dates_to_send_reminder_run)) {
     $uToken = $result['verify_token'];
     $uDate = $result['rdate'];
     $uStatus = $result['r_status'];
-
-    // $unixDate = strtotime($DOB);
-    // $diff = $unixDate - time();
-    //echo $diff."=".$unixDate."-".time();
-
-    // if ($diff <= 3600) {
-    //     sendemail_reminder($frName, $yEmail, $DOB);
-
-    //     $update_query = "UPDATE record SET active='1' WHERE id='$id' LIMIT 1";
-    //     $update_query_run = mysqli_query($mysqli, $update_query);
-    // }
 
     echo '<tr>';
     echo '<td>' . $uName . '</td>';
@@ -58,8 +45,8 @@ while ($result = mysqli_fetch_array($find_dates_to_send_reminder_run)) {
 
 
 ?>
-
 </table>
+
 <div>
 <form method="POST">
       <div class="col-lg-6">
