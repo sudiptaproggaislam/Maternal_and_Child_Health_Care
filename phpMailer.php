@@ -11,13 +11,13 @@ function sendemail_verify($name, $email, $verify_token) {
             $mail->SMTPAuth   = true;                                           //Enable SMTP authentication
 
             $mail->Host       = 'smtp.gmail.com';                               //Set the SMTP server to send through
-            $mail->Username   = 'ashrafamit9227@gmail.com';                         //SMTP username
-            $mail->Password   = 'tqjcecrpjpkfonep';                             //SMTP password
+            $mail->Username   = 'sproggaislam@gmail.com';                         //SMTP username
+            $mail->Password   = 'lvwkwukcvvedobqg';                             //SMTP password
 
             $mail->SMTPSecure = 'tls';                                              //Enable implicit TLS encryption
             $mail->Port       = 587;                                            //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-            $mail->setFrom('ashrafamit9227@gmail.com',$name);
+            $mail->setFrom('sproggaislam@gmail.com',$name);
             $mail->addAddress($email);                                          //Name is optional
         
             $mail->isHTML(true);                                                    //Set email format to HTML
