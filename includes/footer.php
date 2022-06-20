@@ -67,6 +67,12 @@
     integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
 
   <!-- Custom Javascript -->
+  <script type="text/javascript">
+    function refreshDiv(){
+      // $('#refresh-div').load(location.href+' #refresh-div');
+      $('#refresh-div').remove();
+    }
+  </script>
   <script src="index.js"></script>
 </body>
 
